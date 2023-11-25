@@ -9,6 +9,8 @@
    <!--Link for small logo-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
+   <script src="contact.js"></script>
+
 
 
 </head>
@@ -37,7 +39,7 @@
         <fieldset>
             <legend>Feel free to reach out to me using the form below</legend>
         
-            <form action="https://httpbin.org/post" method="post" name="ContactForm">
+            <form id="ContactForm" action="https://httpbin.org/post" method="post" name="ContactForm">
                 
                 <!--
         
@@ -54,41 +56,56 @@
                 <br>
                 -->
                 <div class="wrapper">
-                   
+                 
+                    
+                
+                <div class="form_row">
                 <input type="hidden" name="possible_bot" value="true">
+                </div>
+
                 <div class="form_row">
 
                 <label>Name:</label>
-                <input type="text" id="name" name="name"  required>
+                <input type="text" id="name" name="name"  minlength="2" pattern="[a-zA-Z0-9]+"  maxlength="15" oninput="myFunction()" >
                 <br>
-                <span class="error-message" id="errorMessage">Error Message</span>
-                <span class="info-message" id="infoMessage" hidden>Info Message</spann>
+                <span class="error-message" id="errorMessage1" hidden>The Name is too small.</span>
+                <span class="info-message" id="infoMessage1" hidden>The Name is at least 2 characters long.</span>
+                <span class="error-message" id="errorMessage2" hidden>The Name is too large.</span>
+                <span class="info-message" id="infoMessage2" hidden>The Name is maximum 15 characters long.</span>
+                <span class="error-message" id="errorMessageArea" hidden></span>
+                <span id="scv1" > </span>
+               
                 <br>
                 </div>
         
                 <div class="form_row">
                 <label>Email:</label>
-                <input type="email" id="email" name="email"  required>
+                <input type="text" id="email" name="email"  oninput="myFunction()"   >
                 <br>
                 <span class="error-message" id="errorMessage" hidden>Error Message</span>
-                <span class="info-message" id="infoMessage">Info Message</spann>
+                <span class="info-message" id="infoMessage" hidden>Info Message</span>
+                <span class="error-message" id="errorMessageArea1" hidden></span>
                
                 <br>
                 </div>
         
                 <div class="form_row">
                 <label>Message: <b style="color:grey;">(mandatory)</b ></label>
-                <textarea id="message" name="message"  rows="6" required > </textarea>
+                <textarea id="message" name="message"  rows="6"  maxlength="150" oninput="characterCount()"  > </textarea>
                 <br>
-                <span class="error-message" id="errorMessage">Error Message</span>
-                <span class="info-message" id="infoMessage">Info Message</spann>
+                <span class="character-count" id="messageInfo" hidden></span>
+                <span class="info-message" id="messageInfo2" hidden></span>
             
                 <br>
                 </div>
         
-                <div class="form_row">
-                <input type="submit" value="Submit">
-                </div>
+
+
+                <button  type="submit" value="submit">
+                    Submit
+                </button>
+                 
+               
 
                 </div>
 

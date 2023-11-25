@@ -1,9 +1,19 @@
 /*Those are the variables in CSS*/
-:root {
-    --main-color:#2E4052;
+[data-theme="light"] {
+  --color-bg:#2E4052;
+  --color-fr:#FBFEFB;
 
-   
-  }
+}
+
+[data-theme="dark"] {
+  --color-bg: #000000;
+  
+  
+}
+
+
+
+
 
   h1,h2,h3,p{
     color:#FBFEFB
@@ -19,8 +29,7 @@
  
 body{
 
-    background-color: var(--main-color);
-    background-color: #2E4052;
+    background-color: var(--color-bg);
     
     font-family:Roboto, Arial, sans-serif;
     margin: 0;
