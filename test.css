@@ -1,0 +1,130 @@
+
+body{
+    background-color: beige;
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+nav{
+    background-color:#2E4052;
+    width:100%;
+    Display:  Flex;
+    Flex-direction:row;
+    justify-content: space-around;
+    z-index:1;
+    padding: 10px;
+}
+ 
+
+a{
+text-decoration: none;
+color: beige;
+text-decoration: none; /* Remove the default underline for links */
+border-bottom: 2px solid transparent; /* Initially, a transparent border */
+transition: border-bottom 0.3s; 
+}
+
+li{
+    list-style-type: none;
+    padding:10px
+
+    }
+
+    
+
+
+li a {
+text-decoration: none; /* Remove the default underline for links */
+position: relative; /* Set the position of the link to relative */
+}
+
+li a::after {
+content: "";
+position: absolute;
+width: 0;
+height: 1px;
+display: block;
+transition: all 0.3s ease;
+bottom: 0%;
+}
+
+li a:hover::after {
+width: 100%;
+background-color: #fff;
+}
+  
+fieldset {
+    border: 2px solid #2E4052;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 700px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.wrapper {
+    background-color: #2E4052;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 3px;
+    padding: 20px;
+    color: #f9f9f9;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+
+input{
+    width: 80%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+/* Style the error messages */
+ .errorNameMessage,
+ .errorEmailMessage,
+ .errorMessage {
+     color: red;
+     font-size: 14px;
+     margin-top: 5px;
+     display: none;
+ }
+ 
+ /* Show the error message when the input is invalid */
+ .name:invalid ~ .errorNameMessage,
+ .email:invalid ~ .errorEmailMessage,
+ .message:invalid ~ .errorMessage {
+     display: block;
+ }
+ 
+ /* Hide the error message when the input is valid */
+ .name:valid ~ .errorNameMessage,
+ .email:valid ~ .errorEmailMessage,
+ .message:valid ~ .errorMessage {
+     display: none;
+ }

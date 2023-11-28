@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="nav-bar">
+        <li><a href="index.html">Home </a></li>
+        <li><a href="about.html">About </a></li>
+        <li><a href="cv.html">Curriculum Vitae </a></li>
+       <li> <a href="projects.html">Project  </a></li>
+        <li><a href="personality.html"> Personality  </a></li>
+       <li> <a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+    </nav>
+
+    
+    <div class="upmyclass">
+        <h2 id="Contactid">Contact</h2>
+        <a href="#topofpage">
+           <i style="font-size: 2rem; cursor: pointer;  margin-left: 100px;margin-top: 60px;" class="fa fa-chevron-up "></i>
+         </a>
+    </div>
+
+    <fieldset>
+        <legend>Feel free to reach out to me using the form below</legend>
+        <form id="ContactForm" action="https://httpbin.org/post" method="post" name="ContactForm">
+            <div class="wrapper">
+                <div class="form-row">
+                    <label for="name">Name: <b style="color:grey;"> (no dots are allowed)</b ></label>
+                    <input type="text" id="name" name="name" class="name" minlength="2" pattern="[a-zA-Z0-9]+" maxlength="15" required="">
+                    <br>
+                    
+                </div>
+                
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required="">
+                    <br>
+                
+                </div>
+                
+                <div class="form-row">
+                    <label for="message">Message:<b style="color:grey;">(no empty messages)</b ></label>
+                    <textarea id="message" name="message" class="message" rows="6" minlength="0" maxlength="150" required> </textarea>
+                    <br>
+                    
+                </div>
+                <button  type="submit" value="submit">
+                    Submit
+                </button>
+            </div>
+
+
+          
+
+        </form>
+    </fieldset>
+    </body>
+    </html>
+    

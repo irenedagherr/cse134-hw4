@@ -1,6 +1,44 @@
-//accessing elements of the form
+
+form_errors = [];
+
+var form = document.getElementById('yourFormId'); 
+
+
+
+form.addEventListener('submit', function (event) {
+    // Reset the form_errors array on each form submission
+    form_errors = [];
+
+  
+    myFunction();
+    
+    console.log("Hello world!");
+
+    console.log(form_errors);
+    
+    if (form_errors.length > 0) {
+        // Convert the form_errors array to a JSON string
+        var errorsJson = JSON.stringify(form_errors);
+
+        // Create a hidden input field to store the JSON-encoded errors
+        var hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'form-errors';
+        hiddenInput.value = errorsJson;
+
+        // Append the hidden input to the form
+        form.appendChild(hiddenInput);
+
+        // Prevent the form from submitting
+        event.preventDefault();
+    }
+});
+
+
+
 
 function myFunction() {
+    
     var name = document.getElementById('name');
     var email = document.getElementById('email');
     var message = document.getElementById('message');
@@ -10,36 +48,65 @@ function myFunction() {
     email.setCustomValidity('');
     message.setCustomValidity('');
 
-    if(name.value.trim() !== ''){
+   
 
-    if (!/^[a-zA-Z]+$/.test(name.value)) {
-            flashField(name,"Please use only letters.");
+    if (!/^[a-zA-Z]+$/.test(name.value) && name.value.trim() !== '') {
+            flashField(name,'solveMessage1');
+        
+            var errorObject = {
+                field: 'name',
+                message: 'Using only letters in the name '
+            };
+            form_errors.push(errorObject);
             return;
     }
 
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value)) {
-        flashField(email,"Please enter a valid mail");
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value) && email.value.trim()!=='')  {
+        flashField(email,'solveMessage2');
+        
+
+        var errorObject = {
+            field: 'email',
+            message: 'Incorrect syntax for mail'
+        };
+        form_errors.push(errorObject);
         return;
     }
 
-    if ( !name.checkValidity()) {
-        if (name.validity.tooShort) {
-            showErrorMessage('errorMessage1', 'infoMessage1');
-            
-        } else if (name.validity.tooLong) {
-            showErrorMessage('errorMessage2', 'infoMessage2');
-        }
-    } else {
+
+    //CHECKIN NAME VALIDITY 
+
+if (!name.checkValidity()) {
+    if (name.validity.valueMissing) {
+        // The input is empty, you can handle this case as needed
         hideErrorMessage('errorMessage1', 'infoMessage1');
         hideErrorMessage('errorMessage2', 'infoMessage2');
+        hideMessage('approvemessage1');
 
-        var scv1 = document.getElementById('scv1');
-        scv1.className = 'perfect';
-        scv1.textContent = 'This is perfect!';
-        scv1.style.display = 'block';
+    } else if (name.validity.tooShort) {
+        showErrorMessage('errorMessage1', 'infoMessage1');
+        hideMessage('approvemessage1');
+        var errorObject = {
+            field: 'name',
+            message: 'Name is too short '
+        };
+        form_errors.push(errorObject);
+    } else if (name.validity.tooLong) {
+        showErrorMessage('errorMessage2', 'infoMessage2');
+        hideMessage('approvemessage1');
+        var errorObject = {
+            field: 'name',
+            message: 'Name is too long'
+        };
+        form_errors.push(errorObject);
     }
-    }
-
+} else {
+    hideErrorMessage('errorMessage1', 'infoMessage1');
+    hideErrorMessage('errorMessage2', 'infoMessage2');
+    showMessage('approvemessage1');
+}
+    
+///////////////////////////////////////////////////////
 
     // Validate email
     if (!email.checkValidity()) {
@@ -54,30 +121,27 @@ function myFunction() {
     }
 }
 
-function flashField(input,errorMessage,number) {
+
+
+
+/////////////////Flash the field & the message that comes with it 
+
+function flashField(input,errorMessage) {
     input.classList.add('flash');
-    showErrorInErrorMessageArea(errorMessage,number);
+    showMessage(errorMessage);
     setTimeout(() => {
         input.classList.remove('flash');
-        hideErrorMessageInErrorMessageArea();
-    }, 3000);
+        hideMessage(errorMessage);
+    }, 2000);
 
 
 }
 
-function showErrorInErrorMessageArea(errorMessage,number) {
-    var errorMessageArea = document.getElementById('errorMessagenumber');
-    errorMessageArea.textContent = errorMessage;
-    errorMessageArea.style.display = 'block';
-}
-
-function hideErrorMessageInErrorMessageArea() {
-    var errorMessageArea = document.getElementById('errorMessageArea');
-    errorMessageArea.textContent = '';
-    errorMessageArea.style.display = 'none';
-}
 
 
+
+
+//////////////////SHOWING ERROR MESSAGES AND HIDING ERROR MESSAGES 
 
 function showErrorMessage(errorId, infoId) {
     
@@ -89,6 +153,22 @@ function hideErrorMessage(errorId, infoId) {
     document.getElementById(errorId).style.display = 'none';
     document.getElementById(infoId).style.display = 'none';
 }
+/////////////////////SHOWING AND HIDING THE "THIS IS GOOD MESSAGES "
+
+function showMessage(Id) {
+    
+    document.getElementById(Id).style.display = 'block';
+   
+}
+
+function hideMessage(Id) {
+    document.getElementById(Id).style.display = 'none';
+    
+}
+
+
+
+
 
 
 

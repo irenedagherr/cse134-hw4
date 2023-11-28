@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About page</title>
     <link rel="stylesheet" type="text/css" href="pageextra.css">
+    
+    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
    <!--Link for small logo-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
    <script src="contact.js"></script>
+   <script src="darkmode.js"></script>
+
+   <link rel="stylesheet" type="text/css" href="darkmode.css">
+       <!--Sun and Moon Toggle Button-->
+       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
 
 </head>
 
 <body>
- 
+
+   
+    
 
         <nav id="nav-bar">
+            <li>  <label class="labelmoon">
+                <input type="checkbox" class="input-id" s onclick="changeOfTheme()" >
+                <ion-icon class="sun" name="sunny" ></ion-icon>
+                <ion-icon class="moon" name="moon"></ion-icon>
+                <span class="togglemoon"></span>
+                </label></li>
             <li><a href="index.html">Home </a></li>
             <li><a href="about.html">About </a></li>
             <li><a href="cv.html">Curriculum Vitae </a></li>
@@ -27,6 +45,8 @@
            <li> <a href="contact.html">Contact</a></li>
             <li><a href="experiments.html">Experiments</a></li>
         </nav>
+
+      
     
 
         <div class="upmyclass">
@@ -63,28 +83,42 @@
                 <input type="hidden" name="possible_bot" value="true">
                 </div>
 
+              
+
                 <div class="form_row">
 
                 <label>Name:</label>
-                <input type="text" id="name" name="name"  minlength="2" pattern="[a-zA-Z0-9]+"  maxlength="15" oninput="myFunction()" >
+                <input type="text" id="name" name="name"  minlength="2"   maxlength="15" oninput="myFunction()" >
                 <br>
+                
                 <span class="error-message" id="errorMessage1" hidden>The Name is too small.</span>
                 <span class="info-message" id="infoMessage1" hidden>The Name is at least 2 characters long.</span>
+
                 <span class="error-message" id="errorMessage2" hidden>The Name is too large.</span>
                 <span class="info-message" id="infoMessage2" hidden>The Name is maximum 15 characters long.</span>
-                <span class="error-message" id="errorMessageArea" hidden></span>
-                <span id="scv1" > </span>
+
+                
+
+                <span class="approve-message"  id="approvemessage1" hidden>This is perfect! </span>
+                
                
+
+                <span class="solve-message"  id="solveMessage1" hidden>Please use only letters. </span>
                 <br>
                 </div>
+
+
+
         
                 <div class="form_row">
                 <label>Email:</label>
                 <input type="text" id="email" name="email"  oninput="myFunction()"   >
                 <br>
-                <span class="error-message" id="errorMessage" hidden>Error Message</span>
-                <span class="info-message" id="infoMessage" hidden>Info Message</span>
-                <span class="error-message" id="errorMessageArea1" hidden></span>
+                <span class="error-message" id="errorMessage3" hidden>Error Message</span>
+                <span class="info-message" id="infoMessage3" hidden>Info Message</span>
+               
+
+                <span class="solve-message"  id="solveMessage2" hidden>Please enter a valid email. </span>
                
                 <br>
                 </div>

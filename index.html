@@ -6,12 +6,19 @@
 
      <!-- Future link to my future CSS page -->
     <link rel="stylesheet" type="text/css" href="mywebsite.css">
+    <link rel="stylesheet" type="text/css" href="darkmode.css">
 
     <!--Link for small logo-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
    
+    <script src="darkmode.js"></script>
+
+    <!--Sun and Moon Toggle Button-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 
 </head>
 
@@ -20,8 +27,14 @@
 
 <body>
    
-
     
+   
+    <label class="labelmoon">
+    <input type="checkbox"  class="input-id" onclick="changeOfTheme()" >
+    <ion-icon class="sun" name="sunny" ></ion-icon>
+    <ion-icon class="moon" name="moon"></ion-icon>
+    <span class="togglemoon"></span>
+    </label>
 
    
     <a id="topofpage"></a>
@@ -67,12 +80,13 @@
 
 
 
-<section class="home-menu">
+<section class="home-menu" style="padding-left: 5% ">
     <h3><a href="about.html">About</a></h3>
     <h3><a href="cv.html">Curriculum Vitae </a></h3>
     <h3><a href="projects.html">Project  </a></h3>
     <h3><a href="personality.html"> Personality  </a></h3>
     <h3><a href="contact.html">Contact</a></h3>
+    <h3><a href="form-no-js.html">Contact no JS </a></h3>
     
     <h3><a href="experiments.html">Experiments</a></h3>
 

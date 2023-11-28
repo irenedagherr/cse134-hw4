@@ -1,17 +1,10 @@
-/*Those are the variables in CSS*/
-[data-theme="light"] {
-  --color-bg:#2E4052;
-  --color-fr:#FBFEFB;
 
+:root {
+  --color-bg-light: #2E4052;
+  --color-fr-light: #FBFEFB;
+  --color-bg-dark: #000000;
+  --color-fr-dark: #FBFEFB;
 }
-
-[data-theme="dark"] {
-  --color-bg: #000000;
-  
-  
-}
-
-
 
 
 
@@ -29,8 +22,9 @@
  
 body{
 
-    background-color: var(--color-bg);
-    
+   
+    background-color:#2E4052;
+    color: #FBFEFB;
     font-family:Roboto, Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -276,3 +270,4 @@ padding-left: 50px;
 .bottom-logos:hover{
   transform: scale(1.5)
 }
+

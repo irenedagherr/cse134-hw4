@@ -173,6 +173,7 @@ body{
     font-size: 20px;
   
   }
+  
   #download-cv-btn:hover {
     background-color: rgb(65, 225, 214);
   }
@@ -390,18 +391,48 @@ fieldset {
     margin-right: 10px;
 }
 
+
+
+/*                     */
+
   .error-message,
-  .info-message {
-    
+  .info-message ,
+  .solve-message
+  {
       color: red;
       font-size: 14px;
       margin-top: 5px;
-      flex-direction: row;
-      
-
-     
+      flex-direction: row;    
   }
 
+  .approve-message{
+    color: green;
+      font-size: 14px;
+      margin-top: 5px;
+      flex-direction: row; 
+
+  }
+
+
+
+
+/* Style the error message */
+.errorNameMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+/* Show the error message when the input is invalid */
+.name:invalid + .errorNameMessage {
+  display: block;
+}
+
+/* Hide the error message when the input is valid */
+.name:valid + .errorNameMessage {
+  display: none;
+}
 
   
   h2:has(+ p) {
