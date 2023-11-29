@@ -165,23 +165,6 @@ h2{
 
 
 
-.contact-button{
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Text color */
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: width 2s, height 4s,transform 2s;
-}
-
-.contact-button:hover {
-  background-color: #0056b3;
-  transform: rotate(180deg);
-}
-
 
 .flex-container {
     display: flex;
@@ -212,50 +195,6 @@ h2{
 
 
 
-
-
-
-
-
-
-
-
-
-  .flex-items:nth-child(1) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-
-
-    max-width: 650px; 
-
-   
-  }
-  
-  .flex-items:nth-child(2) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    max-width: 200px
-  }
-  
-  .flex-items:nth-child(3) {
-    display: block;
-    flex-grow: 2;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    max-width: 300px}
-
-
-
 .bottom-logos{
 
 display: inline-block;
@@ -269,5 +208,26 @@ padding-left: 50px;
 }
 .bottom-logos:hover{
   transform: scale(1.5)
+}
+
+
+
+.contact-button{
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: beige;
+  color: #2E4052; 
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+  
+  
+  transition: background-color 0.3s ease; 
+}
+
+/* Hover effect */
+.contact-button:hover {
+  background-color: #2980b9; 
 }
 

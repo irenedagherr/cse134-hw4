@@ -173,7 +173,7 @@ body{
     font-size: 20px;
   
   }
-  
+
   #download-cv-btn:hover {
     background-color: rgb(65, 225, 214);
   }
@@ -338,25 +338,30 @@ fieldset {
     height: 100px;
   }
   
-  /* Style the submit button */
-  input[type="submit"] {
-    background-color: #f9f9f9;
-    color: #2E4052;
-    border: none;
+  
+  button {
     padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: beige;
+    color: #2E4052; 
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
+    align-self: center;
+    
+    
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
   }
   
-  input[type="submit"]:hover {
-    background-color:  #656d74;
+  /* Hover effect */
+  button:hover {
+    background-color: #2980b9; /* Change background color on hover */
   }
   
 
 /*My form is a flexbox*/
 
-  .wrapper {
+  .wrapper-form{
     background-color:#2E4052;
     list-style-type: none;
     padding: 0;

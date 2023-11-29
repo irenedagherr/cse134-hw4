@@ -80,3 +80,13 @@
   background-color:#262b2f;
    color:beige;
   }
+
+  .dark-mode .fieldset-class-form{
+    color:beige;
+    border: 2px solid beige;
+    background-color: #2E4052;
+   
+  }
+  
+ 
+  
