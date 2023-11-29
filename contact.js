@@ -1,36 +1,29 @@
 
-form_errors = [];
+var form_errors = [];
 
-var form = document.getElementById('yourFormId'); 
+var form = document.getElementById('ContactForm'); 
 
 
 
 form.addEventListener('submit', function (event) {
-    // Reset the form_errors array on each form submission
+    // Reset the form_errors 
     form_errors = [];
 
   
     myFunction();
     
-    console.log("Hello world!");
+
 
     console.log(form_errors);
     
     if (form_errors.length > 0) {
-        // Convert the form_errors array to a JSON string
+        
         var errorsJson = JSON.stringify(form_errors);
 
-        // Create a hidden input field to store the JSON-encoded errors
-        var hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'form-errors';
+        
+        var hiddenInput = document.getElementById('form-errors');
         hiddenInput.value = errorsJson;
-
-        // Append the hidden input to the form
-        form.appendChild(hiddenInput);
-
-        // Prevent the form from submitting
-        event.preventDefault();
+       
     }
 });
 
@@ -57,8 +50,9 @@ function myFunction() {
                 field: 'name',
                 message: 'Using only letters in the name '
             };
+
             form_errors.push(errorObject);
-            return;
+            
     }
 
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value) && email.value.trim()!=='')  {
@@ -69,8 +63,9 @@ function myFunction() {
             field: 'email',
             message: 'Incorrect syntax for mail'
         };
+
         form_errors.push(errorObject);
-        return;
+       
     }
 
 

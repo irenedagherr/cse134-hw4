@@ -76,7 +76,7 @@
       
         
     </form>
-
+    <!--Usin the click to apply the  selected Theme-->
     <a style="color: black;"href="theme2.html?themeName=selectedTheme">Click me to go to a new page</a>
 
     <div id="savedThemes">
@@ -151,7 +151,7 @@
     document.body.style.backgroundColor = backgroundColor;
     document.body.style.fontFamily = fontSet;
 
-    // Save the selected theme name in localStorage
+    // Using localStorage to store the Theme 
     localStorage.setItem("selectedTheme", "customTheme");
 
     displaySavedThemes();
