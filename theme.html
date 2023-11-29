@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Irene Dagher's Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="pageextra.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <!--Link for small logo-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="darkmode.css">
+    <!--Sun and Moon Toggle Button-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: color 0.3s, background-color 0.3s, font-family 0.3s;
+        }
+
+        #savedThemes {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .savedTheme {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav-bar">
+        <li>
+            <label class="labelmoon">
+                <input type="checkbox" class="input-id" onclick="changeOfTheme()">
+                <ion-icon class="sun" name="sunny"></ion-icon>
+                <ion-icon class="moon" name="moon"></ion-icon>
+                <span class="togglemoon"></span>
+            </label>
+        </li>
+        <li><a href="index.html">Home </a></li>
+        <li><a href="about.html">About </a></li>
+        <li><a href="cv.html">Curriculum Vitae </a></li>
+        <li><a href="projects.html">Project  </a></li>
+        <li><a href="personality.html"> Personality  </a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+    </nav>
+
+    <h1>Theme Customization</h1>
+
+    <form id="themeForm">
+        <label for="textColor">Text Color:</label>
+        <input type="color" id="textColor" name="textColor" value="#000000"><br>
+
+        <label for="backgroundColor">Background Color:</label>
+        <input type="color" id="backgroundColor" name="backgroundColor" value="#ffffff"><br>
+
+        <label for="fontSet">Font Set:</label>
+        <select id="fontSet" name="fontSet">
+            <option value="Arial, sans-serif">Arial, sans-serif</option>
+            <option value="Times New Roman, serif">Times New Roman, serif</option>
+            <option value="Courier New, monospace">Courier New, monospace</option>
+       
+        </select><br>
+
+        <label for="themeName">Theme Name:</label>
+        <input type="text" id="themeName" name="themeName" placeholder="Enter theme name"><br>
+
+        <button type="button" onclick="saveCustomTheme()">Save Custom Theme</button>
+        <button type="button" onclick="applyCustomTheme()">Change Theme</button>
+      
+        
+    </form>
+
+    <a style="color: black;"href="theme2.html?themeName=selectedTheme">Click me to go to a new page</a>
+
+    <div id="savedThemes">
+        <h2>Saved Themes</h2>
+        <div id="themeList"></div>
+    </div>
+
+    
+
+    <script>
+        function saveCustomTheme() {
+            var themeName = document.getElementById("themeName").value;
+            var textColor = document.getElementById("textColor").value;
+            var backgroundColor = document.getElementById("backgroundColor").value;
+            var fontSet = document.getElementById("fontSet").value;
+
+        
+            var customTheme = {
+                name: themeName,
+                text: textColor,
+                background: backgroundColor,
+                font: fontSet
+            };
+
+           
+            var savedThemes = JSON.parse(localStorage.getItem("savedThemes")) || [];
+            savedThemes.push(customTheme);
+            localStorage.setItem("savedThemes", JSON.stringify(savedThemes));
+
+        
+            displaySavedThemes();
+        }
+
+        function displaySavedThemes() {
+            var savedThemesContainer = document.getElementById("themeList");
+            savedThemesContainer.innerHTML = "";
+
+          
+            var savedThemes = JSON.parse(localStorage.getItem("savedThemes")) || [];
+
+            savedThemes.forEach(function(theme) {
+            
+                var savedThemeDiv = document.createElement("div");
+                savedThemeDiv.className = "savedTheme";
+                savedThemeDiv.style.backgroundColor = theme.background;
+                savedThemeDiv.style.color = theme.text;
+                savedThemeDiv.style.fontFamily = theme.font;
+                savedThemeDiv.innerHTML = theme.name;
+                savedThemeDiv.onclick = function() {
+                    applySavedTheme(theme);
+                };
+
+                savedThemesContainer.appendChild(savedThemeDiv);
+            });
+        }
+
+        function applySavedTheme(theme) {
+            document.getElementById("textColor").value = theme.text;
+            document.getElementById("backgroundColor").value = theme.background;
+            document.getElementById("fontSet").value = theme.font;
+
+            applyCustomTheme();
+
+            localStorage.setItem("selectedTheme", theme.name);
+        }
+        function applyCustomTheme() {
+    var textColor = document.getElementById("textColor").value;
+    var backgroundColor = document.getElementById("backgroundColor").value;
+    var fontSet = document.getElementById("fontSet").value;
+
+    document.body.style.color = textColor;
+    document.body.style.backgroundColor = backgroundColor;
+    document.body.style.fontFamily = fontSet;
+
+    // Save the selected theme name in localStorage
+    localStorage.setItem("selectedTheme", "customTheme");
+
+    displaySavedThemes();
+}
+
+    function saveAndNavigate() {
+       
+        var themeName = document.getElementById("themeName").value;
+        localStorage.setItem("selectedTheme", themeName);
+
+        
+        window.location.href = "theme2.html";
+    }
+ 
+        window.addEventListener("load", function() {
+            displaySavedThemes();
+        }
+        
+        
+        
+        );
+
+
+    </script>
+</body>
+</html>

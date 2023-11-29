@@ -1,6 +1,7 @@
 function changeOfTheme(){
     var element = document.body;
     element.classList.toggle("dark-mode");
+    
    
     var isDarkMode = element.classList.contains("dark-mode");
     localStorage.setItem("darkMode", isDarkMode);

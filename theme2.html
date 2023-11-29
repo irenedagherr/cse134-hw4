@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="pageextra.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <!--Link for small logo-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="darkmode.css">
+    <!--Sun and Moon Toggle Button-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="darkmode.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: color 0.3s, background-color 0.3s, font-family 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav-bar">
+        <li>
+            <label class="labelmoon">
+                <input type="checkbox" class="input-id" onclick="changeOfTheme()">
+                <ion-icon class="sun" name="sunny"></ion-icon>
+                <ion-icon class="moon" name="moon"></ion-icon>
+                <span class="togglemoon"></span>
+            </label>
+        </li>
+        <li><a href="index.html">Home </a></li>
+        <li><a href="about.html">About </a></li>
+        <li><a href="cv.html">Curriculum Vitae </a></li>
+        <li><a href="projects.html">Project  </a></li>
+        <li><a href="personality.html"> Personality  </a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+    </nav>
+
+    <h1>New Page Content</h1>
+
+    <a style="color: black;" href="theme.html">Go back</a>
+
+   
+<script>
+   function applySavedTheme() {
+    // Retrieve the selected theme from local storage
+    var themeName = localStorage.getItem("selectedTheme");
+
+    if (themeName === "customTheme") {
+        // Apply custom theme directly (if selected on the customization page)
+        applyCustomTheme();
+    } else {
+        // Retrieve saved custom themes from local storage
+        var savedThemes = JSON.parse(localStorage.getItem("savedThemes")) || [];
+
+        // Find the theme with the matching name
+        var selectedTheme = savedThemes.find(theme => theme.name === themeName);
+
+        if (selectedTheme) {
+            // Apply the theme to the body
+            document.body.style.color = selectedTheme.text;
+            document.body.style.backgroundColor = selectedTheme.background;
+            document.body.style.fontFamily = selectedTheme.font;
+        }
+    }
+}
+
+window.addEventListener("load", function() {
+    // Apply saved theme on page load
+    applySavedTheme();
+
+    // Display saved themes
+    displaySavedThemes();
+});
+
+</script>
+    
+</body>
+</html>
